@@ -37,8 +37,9 @@ class App extends React.Component {
       const colors = data.filter(
           color => filterColor(lightOrDark, color)
           
-      ).map(color => {
+      ).map((color, index) => {
           return <div
+          key={index}
           className={color[3]}
           style={{
               backgroundColor: color[1],
@@ -57,7 +58,7 @@ class App extends React.Component {
 
       return (
           <div>
-              <label for="options">Choose an option</label>
+              <label htmlFor="options">Choose an option</label>
               <select onChange={(event) => {
                   this.setState({lightOrDark: event.target.value})
               }}>
